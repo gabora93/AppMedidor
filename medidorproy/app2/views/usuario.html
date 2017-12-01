@@ -1,0 +1,17 @@
+<section class="users boxi" ng-controller="UserCtrl">
+	<div class="container-fluid">
+		<h2>Users</h2>
+		<button class="btn btn-danger" ng-click="users.goToCreate()">Nuevo usuario</button>
+		<div class="row">
+			<ul class="users__list">
+				<li ng-repeat="user in users.userList" class="col-xs-6 col-sm-3 col-md-2">
+					<div class="users__list-item" ng-click="users.viewUser(user.id)">
+						<div class="item-c-user-name">Nombre de Usuario: {{ user.usuario }}</div>
+						<div class="item-c-user-name">Rol: {{ user.rol }}</div>
+						<div class="item-c-user-name">pass: {{ user.password }}</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+</section>

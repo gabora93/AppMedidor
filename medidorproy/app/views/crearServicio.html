@@ -1,0 +1,56 @@
+<section class="boxi">
+    <div class="col-md-6 col-md-offset-3">
+        <h2>Crear Servicio</h2>
+        <form name="form" ng-submit="services.crearServicio()" role="form">
+            <div class="form-group" ng-class="{ 'has-error': form.num_servicio.$dirty && form.num_servicio.$error.required }">
+                <label for="num_servicio">Numero de Servicio:</label>
+                <input type="text" name="num_servicio" id="num_servicio" class="form-control" ng-model="services.serviceObject.num_servicio" required />
+                <span ng-show="form.num_servicio.$dirty && form.num_servicio.$error.required" class="help-block">Numero de servicio es requerido</span>
+            </div>
+            <!-- <div class="form-group" ng-class="{ 'has-error': form.id_cliente.$dirty && form.id_cliente.$error.required }"> -->
+                <div>
+                <label for="id_cliente">Cliente:</label>
+                <!-- <input type="id_cliente" name="id_cliente" id="id_cliente" class="form-control" ng-model="services.serviceObject.id_cliente" required /> -->
+
+                <!-- <ui-select class="input-control select" ng-model="services.serviceObject.id_cliente" theme="bootstrap" style="width:100%; ">
+                    <ui-select-match  >{{$select.selected.nombre}}</ui-select-match>
+                    <ui-select-choices repeat="item.key as item in services.clientsList | filter: $select.search">
+
+                        <div ng-bind-html="item.nombre | highlight: $select.search"></div>
+
+                        <small ng-bind-html="item.id | highlight: $select.search"></small>
+
+                    </ui-select-choices>
+                </ui-select> -->
+
+                <ui-select ng-model="services.serviceObject.id_cliente">
+                    <ui-select-match  placeholder="Seleccione un Cliente...">{{$select.selected.nombre}}</ui-select-match>
+                    <ui-select-choices 
+                     repeat="item.value as item in services.clientsList | filter: $select.search track by item.nombre"
+                     value="{{$select.selected.value}}">
+                        <!-- <div ng-bind-html="item.nombre | highlight: $select.search"></div> -->
+                        <div ng-bind-html="item.id | highlight: $select.search"></div>
+                    </ui-select-choices>
+                </ui-select>
+                <input type="text" value="{{$select.selected.nombre}}" name="id_clientex"/>
+                <p>Seleccionado: {{services.serviceObject.id_cliente}}</p>
+
+                <!-- <span ng-show="form.id_cliente.$dirty && form.id_cliente.$error.required" class="help-block">Cliente es requerido</span> -->
+            </div>
+            <div class="form-group" ng-class="{ 'has-error': form.fecha_registro.$dirty && form.fecha_registro.$error.required }">
+                <label for="fecha_registro">Fecha Registro:</label>
+                <input type="date" name="fecha_registro" id="fecha_registro" class="form-contfecha_registro" ng-model="services.serviceObject.fecha_registro" required />
+                <span ng-show="form.fecha_registro.$dirty && form.fecha_registro.$error.required" class="help-block">Fecha de registro es requerido</span>
+            </div>
+            <div class="form-group" ng-class="{ 'has-error': form.ruta.$dirty && form.ruta.$error.required }">
+                <label for="ruta">Ruta:</label>
+                <input type="text" name="ruta" id="ruta" class="form-control" ng-model="services.serviceObject.ruta" required />
+                <span ng-show="form.ruta.$dirty && form.ruta.$error.required" class="help-block">La ruta es requerida</span>
+            </div>
+            <div class="form-actions">
+                <button type="submit" ng-disabled=" services.dataLoading" class="btn btn-primary">Guardar</button>
+                <img ng-if="services.dataLoading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+            </div>
+        </form>
+    </div>
+    </section>

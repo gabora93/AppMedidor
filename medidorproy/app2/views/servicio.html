@@ -1,0 +1,17 @@
+<section class="users boxi" ng-controller="ServicioCtrl">
+	<div class="container-fluid">
+        <h2>Servicio</h2>
+        <button class="btn btn-info" ng-click="services.goToCreate()">Nuevo Servicio</button>
+		<div class="row">
+			<ul class="users__list">
+				<li ng-repeat="service in services.serviceList" class="col-xs-6 col-sm-3 col-md-2">
+					<div class="users__list-item" ng-click="users.viewUser(user.id)">
+						<div class="item-c-user-name">Ruta: {{ service.ruta }}</div>
+						<div class="item-c-user-name">Numero de servicio: {{ service.num_servicio }}</div>
+						<div class="item-c-user-name">Codigo Postal: {{ service.cp }}</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+</section>

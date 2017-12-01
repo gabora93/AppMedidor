@@ -1,0 +1,33 @@
+<section class="boxi">
+    <form action="">
+        <div>
+        <label>Numero de Servicio:</label>
+            <input type="text" ng-model="services.serviceObject.num_servicio">
+        </div>
+        <div>
+                <label>Cliente:</label>
+                    <input type="text" ng-model="services.serviceObject.id_cliente">
+
+                    <!-- <ui-select ng-model="services.serviceObject.id_cliente">
+                            <ui-select-match  placeholder="Seleccione un Cliente...">{{$select.selected.nombre}}</ui-select-match>
+                            <ui-select-choices 
+                             repeat="item.value as item in services.clientsList | filter: $select.search track by item.nombre"
+                             value="{{$select.selected.value}}">
+                                 <div ng-bind-html="item.nombre | highlight: $select.search"></div> -->
+                                <!-- <div ng-bind-html="item.id | highlight: $select.search"></div>
+                            </ui-select-choices>
+                        </ui-select> --> 
+        </div>
+                <!-- <div>
+                    <label>Fecha de Registro:</label>
+                    <input type="date" ng-model="services.serviceObject.fecha_registro">
+                </div> -->
+         <div>
+            <label>Ruta:</label>
+           <input type="text" ng-model="services.serviceObject.ruta">
+        </div>
+        <button ng-disabled=" services.dataLoading" ng-click="services.crearServicio()" class="btn btn-primary">Guardar</button>
+    </form>
+    
+
+</section>

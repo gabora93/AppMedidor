@@ -1,0 +1,17 @@
+<section class="users boxi" ng-controller="ClientCtrl">
+	<div class="container-fluid">
+        <h2>Clientes</h2>
+        <button class="btn btn-success" ng-click="clients.goToCreate()">Nuevo Cliente</button>
+		<div class="row">
+			<ul class="users__list">
+				<li ng-repeat="client in clients.clientsList" class="col-xs-6 col-sm-3 col-md-2">
+					<div class="users__list-item" ng-click="users.viewUser(user.id)">
+						<div class="item-c-user-name">Nombre de Cliente: {{ client.nombre }}</div>
+						<div class="item-c-user-name">Rol: {{ client.domicilio }}</div>
+						<div class="item-c-user-name">Codigo Postal: {{ client.cp }}</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+</section>
